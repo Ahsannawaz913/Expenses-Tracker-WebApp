@@ -1,5 +1,16 @@
 version: "3.8"
 services:
+  nginx:
+    build: ./nginx
+    image: nginx
+    container_name: "nginx_cont"
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - Expensetracker
+    networks:
+      - appbridge
   mysql:
     image: mysql:latest
     container_name: mysql
